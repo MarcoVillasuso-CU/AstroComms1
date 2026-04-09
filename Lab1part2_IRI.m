@@ -32,7 +32,7 @@ semilogx(ax1,data1.density.Ne,data1.altkm,'linewidth',2);
 
 xlabel(ax1, "Electron Density (#/cm^3)");
 ylabel(ax1, "Altitude (km)");
-title(ax1, "Electron Density vs Altitude");
+title(ax1, "Electron ⍴ vs Alt.");
 
 % change the font size
 
@@ -56,20 +56,20 @@ data1.nfac = data1.density.Ne / 1000;
 
 semilogx(ax2,data1.density.Op .* data1.nfac,data1.altkm,'linewidth',1.5);
 hold(ax2,'on');
-XX
-XX
-XX
-XX
-XX
-XX
+semilogx(ax2,data1.density.Np .* data1.nfac,data1.altkm,'linewidth',1.5);
+semilogx(ax2,data1.density.Hp .* data1.nfac,data1.altkm,'linewidth',1.5);
+semilogx(ax2,data1.density.Hep .* data1.nfac,data1.altkm,'linewidth',1.5);
+semilogx(ax2,data1.density.O2p .* data1.nfac,data1.altkm,'linewidth',1.5);
+semilogx(ax2,data1.density.NOp .* data1.nfac,data1.altkm,'linewidth',1.5);
+semilogx(ax2,data1.density.Cluster .* data1.nfac,data1.altkm,'linewidth',1.5);
 
 legend(ax2,'O+','N+','H+ (protons)','He+','O2+','NO+','Cluster ions')
 
 % label your plots! 
 
-XX
-XX
-XX
+xlabel(ax2, "Ion Densities (+ / cm^3)");
+ylabel(ax2, "Altitude (km)");
+title(ax2, "Ion ⍴ vs Alt.");
 
 % change the font size
 
@@ -90,16 +90,16 @@ ax3 = axes;
 
 plot(ax3,data1.temp.neutral,data1.altkm,'linewidth',2);
 hold(ax3,'on');
-XX
-XX
+plot(ax3,data1.temp.ion,data1.altkm,'linewidth',2);
+plot(ax3,data1.temp.el,data1.altkm,'linewidth',2);
 
 legend(ax3,'Neutrals','Ions','Electrons');
 
 % label your plots! 
 
-XX
-XX
-XX
+xlabel(ax3, "Ion Temperatures (K)");
+ylabel(ax3, "Altitude (km)");
+title(ax3, "Ion Temp. vs Alt.");
 
 % change the font size
 
@@ -133,15 +133,15 @@ ax43 = subplot(1,3,3);
 
 semilogx(ax41,data1.density.Ne,data1.altkm,'linewidth',1.5);
 hold(ax41,'on');
-XX
+semilogx(ax41,data2.density.Ne,data2.altkm,'linewidth',1.5);
 
 legend(ax41,'Noon','Midnight');
 
 % label your plots! 
 
-XX
-XX
-XX
+xlabel(ax41, "Electron Density (#/cm^3)");
+ylabel(ax41, "Altitude (km)");
+title(ax41, "Electron ⍴ vs Alt. (Day/Night)");
 
 % change the font size
 
@@ -154,19 +154,20 @@ data2.nfac = data2.density.Ne / 1000;
 
 semilogx(ax42,data1.density.Op .* data1.nfac,data1.altkm,'linewidth',1.5);
 hold(ax42,'on');
-XX
-XX
-XX
-XX
-XX
+semilogx(ax42,data1.density.Hp .* data1.nfac,data1.altkm,'linewidth',1.5);
+semilogx(ax42,data1.density.NOp .* data1.nfac,data1.altkm,'linewidth',1.5);
+
+semilogx(ax42,data2.density.Op .* data2.nfac,data2.altkm,'linewidth',1.5);
+semilogx(ax42,data2.density.Hp .* data2.nfac,data2.altkm,'linewidth',1.5);
+semilogx(ax42,data2.density.NOp .* data2.nfac,data2.altkm,'linewidth',1.5);
 
 legend(ax42,'O+ Noon','H+ Noon','NO+ Noon','O+ Midnight','H+ Midnight','NO+ Midnight');
 
 % label your plots! 
 
-XX
-XX
-XX
+xlabel(ax42, "Ion Densities (+ / cm^3)");
+ylabel(ax42, "Altitude (km)");
+title(ax42, "Ion ⍴ vs Alt. (Day/Night)");
 
 set(ax42,'xlim',[1e0 1e6]);
 
@@ -179,20 +180,22 @@ set(ax42,'Fontsize',14);
 
 plot(ax43,data1.temp.neutral,data1.altkm,'linewidth',1.5);
 hold(ax43,'on');
-XX
-XX
-XX
-XX
-XX
+plot(ax43,data1.temp.ion,data1.altkm,'linewidth',1.5);
+plot(ax43,data1.temp.el,data1.altkm,'linewidth',1.5);
+
+plot(ax43,data2.temp.neutral, data2.altkm,'linewidth',1.5);
+plot(ax43,data2.temp.ion,     data2.altkm,'linewidth',1.5);
+plot(ax43,data2.temp.el,      data2.altkm,'linewidth',1.5);
 
 legend(ax43,'Neutrals Noon','Ions Noon','Electrons Noon','Neutrals Midnight',...
     'Ions Midnight','Electrons Midnight');
 
 % label your plots! 
 
-XX
-XX
-XX
+
+xlabel(ax43, "Ion Temperatures (K)");
+ylabel(ax43, "Altitude (km)");
+title(ax43, "Ion Temp. vs Alt. (Day/Night)");
 
 % change the font size
 
@@ -211,16 +214,16 @@ ax53 = subplot(1,3,3);
 
 semilogx(ax51,data1.density.Ne,data1.altkm,'linewidth',1.5);
 hold(ax51,'on');
-XX
-XX
+semilogx(ax51,data3.density.Ne,data3.altkm,'linewidth',1.5);
+semilogx(ax51,data4.density.Ne,data4.altkm,'linewidth',1.5);
 
 legend(ax51,'40 deg','0 deg','80 deg');
 
 % label your plots! 
 
-XX
-XX
-XX
+xlabel(ax51, "Electron Density (#/cm^3)");
+ylabel(ax51, "Altitude (km)");
+title(ax51, "Electron ⍴ vs Alt. (Latitude)");
 
 % change the font size
 
@@ -234,23 +237,25 @@ data4.nfac = data4.density.Ne / 1000;
 
 semilogx(ax52,data1.density.Op .* data1.nfac,data1.altkm,'linewidth',1.5);
 hold(ax52,'on');
-XX
-XX
-XX
-XX
-XX
-XX
-XX
-XX
+semilogx(ax52,data1.density.Hp .* data1.nfac,data1.altkm,'linewidth',1.5);
+semilogx(ax52,data1.density.NOp .* data1.nfac,data1.altkm,'linewidth',1.5);
+
+semilogx(ax52,data3.density.Op .* data3.nfac,data3.altkm,'linewidth',1.5);
+semilogx(ax52,data3.density.Hp .* data3.nfac,data3.altkm,'linewidth',1.5);
+semilogx(ax52,data3.density.NOp .* data3.nfac,data3.altkm,'linewidth',1.5);
+
+semilogx(ax52,data4.density.Op .* data4.nfac,data4.altkm,'linewidth',1.5);
+semilogx(ax52,data4.density.Hp .* data4.nfac,data4.altkm,'linewidth',1.5);
+semilogx(ax52,data4.density.NOp .* data4.nfac,data4.altkm,'linewidth',1.5);
 
 legend(ax52,'O+ 40 deg','H+ 40 deg','NO+ 40 deg','O+ 0 deg','H+ 0 deg','NO+ 0 deg',...
     'O+ 80 deg','H+ 80 deg','NO+ 80 deg');
 
 % label your plots! 
 
-XX
-XX
-XX
+xlabel(ax52, "Ion Densities (+ / cm^3)");
+ylabel(ax52, "Altitude (km)");
+title(ax52, "Ion ⍴ vs Alt. (Latitude)");
 
 set(ax52,'xlim',[1e0 1e6]);
 
@@ -262,20 +267,22 @@ set(ax52,'Fontsize',14);
 
 plot(ax53,data1.temp.ion,data1.altkm,'linewidth',1.5);
 hold(ax53,'on');
-XX
-XX
-XX
-XX
-XX
+plot(ax53,data1.temp.el,data1.altkm,'linewidth',1.5);
+
+plot(ax53,data3.temp.ion,data3.altkm,'linewidth',1.5);
+plot(ax53,data3.temp.el,data3.altkm,'linewidth',1.5);
+
+plot(ax53,data4.temp.ion,data4.altkm,'linewidth',1.5);
+plot(ax53,data4.temp.el,data4.altkm,'linewidth',1.5);
 
 legend(ax53,'Ions 40 deg','Electrons 40 deg','Ions 0 deg','Electrons 0 deg',...
     'Ions 80 deg','Electrons 80 deg');
 
 % label your plots! 
 
-XX
-XX
-XX
+xlabel(ax53, "Ion Temperatures (K)");
+ylabel(ax53, "Altitude (km)");
+title(ax53, "Ion Temp. vs Alt. (Latitude)");
 
 % change the font size
 
@@ -294,15 +301,15 @@ ax63 = subplot(1,3,3);
 
 semilogx(ax61,data1.density.Ne,data1.altkm,'linewidth',1.5);
 hold(ax61,'on');
-XX
+semilogx(ax61,data5.density.Ne,data5.altkm,'linewidth',1.5);
 
 legend(ax61,'January 2020','July 2022');
 
 % label your plots! 
 
-XX
-XX
-XX
+xlabel(ax61, "Electron Density (#/cm^3)");
+ylabel(ax61, "Altitude (km)");
+title(ax61, "Electron ⍴ vs Alt. (Seasonal)");
 
 % change the font size
 
@@ -315,20 +322,21 @@ data5.nfac = data5.density.Ne / 1000;
 
 semilogx(ax62,data1.density.Op .* data1.nfac,data1.altkm,'linewidth',1.5);
 hold(ax62,'on');
-XX
-XX
-XX
-XX
-XX
+semilogx(ax62,data1.density.Hp .* data1.nfac,data1.altkm,'linewidth',1.5);
+semilogx(ax62,data1.density.NOp .* data1.nfac,data1.altkm,'linewidth',1.5);
+
+semilogx(ax62,data5.density.Op .* data5.nfac,data5.altkm,'linewidth',1.5);
+semilogx(ax62,data5.density.Hp .* data5.nfac,data5.altkm,'linewidth',1.5);
+semilogx(ax62,data5.density.NOp .* data5.nfac,data5.altkm,'linewidth',1.5);
 
 legend(ax62,'O+ Winter','H+ Winter','NO+ Winter','O+ Summer',...
     'H+ Summer','NO+ Summer');
 
 % label your plots! 
 
-XX
-XX
-XX
+xlabel(ax62, "Ion Densities (+ / cm^3)");
+ylabel(ax62, "Altitude (km)");
+title(ax62, "Ion ⍴ vs Alt. (Seasonal)");
 
 set(ax62,'xlim',[1e0 1e6]);
 
@@ -340,17 +348,18 @@ set(ax62,'Fontsize',14);
 
 plot(ax63,data1.temp.ion,data1.altkm,'linewidth',1.5);
 hold(ax63,'on');
-XX
-XX
-XX
+plot(ax63,data1.temp.el,data1.altkm,'linewidth',1.5);
+
+plot(ax63,data5.temp.ion,data5.altkm,'linewidth',1.5);
+plot(ax63,data5.temp.el,data5.altkm,'linewidth',1.5);
 
 legend(ax63,'January 2020 Ions','January 2020 Electrons','July 2022 Ions','July 2022 Electrons');
 
 % label your plots! 
 
-XX
-XX
-XX
+xlabel(ax63, "Ion Temperatures (K)");
+ylabel(ax63, "Altitude (km)");
+title(ax63, "Ion Temp. vs Alt. (Seasonal)");
 
 % change the font size
 
